@@ -47,6 +47,9 @@ function playRound(playerSelection, computerSelection) {
         playerWinsRound();
     } else {
         computerWinsRound();
+
+
+        
     }         
 }
 
