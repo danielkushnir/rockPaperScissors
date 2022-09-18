@@ -2,6 +2,7 @@ const playerScorePara = document.querySelector("#playerScore");
 const computerScorePara = document.querySelector("#computerScore");
 let playerScore;
 let computerScore;
+resetGame();
 
 function getComputerChoice() {
     const computerOptions = ['rock', 'paper', 'scissors'];
