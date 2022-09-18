@@ -1,5 +1,7 @@
 const playerScorePara = document.querySelector("#playerScore");
 const computerScorePara = document.querySelector("#computerScore");
+const playerChoice = document.querySelector("#playerChoice");
+const computerChoice = document.querySelector("#computerChoice")
 let playerScore;
 let computerScore;
 resetGame();
@@ -38,6 +40,11 @@ function computerWinsRound() {
     }
 }
 
+function displayChoices(playerSelection, computerSelection) {
+    playerChoice.textContent = `Player choice: ${playerSelection[0].toUpperCase() + playerSelection.substring(1)}`;
+    computerChoice.textContent = `Computer Choice: ${computerSelection[0].toUpperCase() + computerSelection.substring(1)}`;
+}
+
 function playRound(playerSelection, computerSelection) {
     if (playerScore === 5 || computerScore === 5) resetGame();
     if (playerSelection.toLowerCase() === computerSelection) {
@@ -48,14 +55,12 @@ function playRound(playerSelection, computerSelection) {
         playerWinsRound();
     } else {
         computerWinsRound();
-
-
-        
-    }         
+    }
+    displayChoices(playerSelection, computerSelection);
 }
 
 resetGame();
 const results = document.querySelector("#results");
 
 const playerBtns = document.querySelectorAll("#playerBtns button");
-playerBtns.forEach(btn => btn.addEventListener('click', () => playRound(btn.textContent, getComputerChoice())));
+playerBtns.forEach(btn => btn.addEventListener('click', () => playRound(btn.id, getComputerChoice())));

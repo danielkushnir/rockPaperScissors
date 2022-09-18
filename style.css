@@ -4,16 +4,21 @@
 }
 
 #rpsGame {
+    margin: 5px;
     display: flex;
-}
-
-#playerBtns {
-    
+    height: 800px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
-    border: none;
+    border: 1px solid rgb(145, 145, 145);
+    border-radius: 25px;
+    margin: 10px;
 }
+
+
 
 button:hover {
     opacity: 0.3;
