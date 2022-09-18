@@ -1,12 +1,18 @@
-let playerScore = 0;
 const playerScorePara = document.querySelector("#playerScore");
-let computerScore = 0;
 const computerScorePara = document.querySelector("#computerScore");
-
+let playerScore;
+let computerScore;
 
 function getComputerChoice() {
     const computerOptions = ['rock', 'paper', 'scissors'];
     return computerOptions[Math.floor(Math.random() * 3)];
+}
+
+function resetGame() {
+    playerScore = 0;
+    playerScorePara.textContent = `Player Score: ${playerScore}`;
+    computerScore = 0;
+    computerScorePara.textContent = `Computer Score: ${computerScore}`;
 }
 
 function tieRound() {
@@ -32,6 +38,7 @@ function computerWinsRound() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    if (playerScore === 5 || computerScore === 5) resetGame();
     if (playerSelection.toLowerCase() === computerSelection) {
         tieRound();
     } else if ((playerSelection.toLowerCase() === 'rock' && computerSelection === 'scissors') ||
@@ -40,12 +47,10 @@ function playRound(playerSelection, computerSelection) {
         playerWinsRound();
     } else {
         computerWinsRound();
-       
-        
-    }
-            
+    }         
 }
 
+resetGame();
 const results = document.querySelector("#results");
 
 const playerBtns = document.querySelectorAll("#playerBtns button");
